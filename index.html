@@ -1,18 +1,22 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio - Desarrollo Lógico y Algoritmo</title>
+    <title>Portafolio | Eliana Daryharis Martínez Quintero</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
     <style>
+        /* Variables de Color para el Tema Celeste/Blanco */
         :root {
-            /* Paleta de colores */
-            --color-primary: #5A7684; /* Azul/gris oscuro para texto principal */
-            --color-secondary: #93B7BE; /* Azul suave para acentos */
-            --color-background: #F8F8F8; /* Fondo muy claro */
-            --color-card-bg: #FFFFFF; /* Fondo de las tarjetas */
+            --color-background: #f4f9f9; /* Fondo muy claro */
+            --color-card-bg: #FFFFFF; /* Blanco Puro */
+            --color-text-dark: #333333; /* Texto oscuro */
+            --color-accent-celeste: #85c1e9; /* Azul/Celeste suave */
+            --color-accent-strong: #3498db; /* Azul/Celeste fuerte para botones */
+            --color-accent-hover: #2980b9; 
+            --color-border-light: #e0eaf3; 
         }
         
         body { 
@@ -20,84 +24,155 @@
             margin: 0; 
             padding: 40px 20px; 
             background-color: var(--color-background); 
-            color: var(--color-primary);
+            color: var(--color-text-dark);
             line-height: 1.6;
         }
         
         .container { 
-            max-width: 900px; 
+            max-width: 950px; 
             margin: auto; 
             background: var(--color-card-bg); 
             padding: 40px; 
             border-radius: 12px; 
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); 
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); 
         }
-        
+
+        /* --- Estilo de Encabezados y Títulos --- */
         h1 { 
-            font-weight: 600;
-            color: var(--color-primary); 
-            border-bottom: 3px solid var(--color-secondary); 
-            padding-bottom: 15px; 
-            margin-bottom: 10px; 
-            font-size: 2.2em;
+            font-weight: 700;
+            color: var(--color-accent-strong); 
+            border-bottom: 3px solid var(--color-accent-celeste); 
+            padding-bottom: 10px; 
+            margin-bottom: 5px; 
+            font-size: 2.5em;
         }
         
         h2 {
             font-weight: 400;
-            color: #777;
+            color: #666;
             margin-bottom: 30px;
         }
         
         h3 {
-            color: var(--color-primary);
+            color: var(--color-text-dark);
             font-weight: 600;
             margin-top: 30px;
-            font-size: 1.5em;
+            font-size: 1.4em;
+            border-left: 5px solid var(--color-accent-celeste);
+            padding-left: 10px;
+            margin-bottom: 20px;
         }
 
+        /* --- Estilo de la Sección Personal --- */
+        .bio-section {
+            display: flex;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px dashed var(--color-border-light);
+            margin-bottom: 30px;
+        }
+
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%; /* Circular */
+            object-fit: cover;
+            border: 4px solid var(--color-accent-celeste);
+            margin-right: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .bio-details p {
+            margin: 5px 0;
+            font-size: 1em;
+        }
+
+        .bio-details a {
+            color: var(--color-accent-strong);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .bio-details a:hover {
+            color: var(--color-accent-hover);
+            text-decoration: underline;
+        }
+        
+        /* --- Estilo de las Asignaciones (Tarjetas) --- */
         .asignacion { 
-            margin-bottom: 20px; 
+            margin-bottom: 15px; 
             padding: 20px; 
-            border: 1px solid #eee; 
-            border-left: 5px solid var(--color-secondary); /* Barra lateral estética */
+            border: 1px solid var(--color-border-light); 
             border-radius: 8px; 
-            background-color: #fcfcfc;
-            transition: transform 0.2s, box-shadow 0.2s;
+            background-color: var(--color-card-bg);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s, background-color 0.2s;
         }
         
         .asignacion:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
         .asignacion h4 {
             margin-top: 0;
-            color: #444;
+            color: var(--color-accent-strong);
             font-weight: 600;
-            font-size: 1.1em;
-        }
-
-        .asignacion p {
-            font-size: 0.9em;
-            color: #666;
-            margin-bottom: 15px;
+            font-size: 1.15em;
         }
         
-        .asignacion a { 
+        /* Botones de acción (Visualizar/Descargar) */
+        .action-button { 
             display: inline-block;
             text-decoration: none; 
             color: white; 
-            background-color: var(--color-secondary);
+            background-color: var(--color-accent-strong); /* Botón principal celeste fuerte */
             padding: 8px 15px;
             border-radius: 5px;
-            font-weight: 400;
+            font-weight: 600;
             font-size: 0.9em;
+            margin-right: 10px;
             transition: background-color 0.3s;
         }
         
-        .asignacion a:hover { 
-            background-color: #688e99;
+        .action-button.secondary {
+            background-color: var(--color-accent-celeste); /* Botón secundario celeste suave */
+        }
+
+        .action-button:hover { 
+            background-color: var(--color-accent-hover);
             text-decoration: none;
+        }
+        
+        .action-button.secondary:hover {
+            background-color: #6fb0e0;
+        }
+
+        /* --- Estilo de la Tabla (Criterios) --- */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            background-color: var(--color-card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--color-border-light);
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--color-border-light);
+        }
+        th {
+            background-color: var(--color-accent-celeste); 
+            font-weight: 600;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f7f9fb; /* Rayas sutiles */
+        }
+        tr:last-child td {
+            border-bottom: none;
         }
 
     </style>
@@ -105,59 +180,109 @@
 <body>
     <div class="container">
         <h1>Portafolio Digital</h1>
-        <h2>Desarrollo Lógico y Algoritmo</h2>
-        <p>
-            Este portafolio contiene la recopilación de las asignaciones y ejercicios realizados durante el curso de **Desarrollo Lógico y Algoritmo** en la Universidad Tecnológica de Panamá.
+        <h2>Desarrollo Lógico y Algoritmo | Universidad Tecnológica de Panamá</h2>
+        
+        <p style="font-style: italic; color: #555; margin-bottom: 25px;">
+            ¡Bienvenido/a! Este portafolio digital es una colección organizada y **pritty** de las asignaciones y proyectos clave desarrollados en la asignatura, con el objetivo de demostrar la aplicación de conceptos de Desarrollo Lógico y Algoritmo.
         </p>
 
-        <h3>📜 Lista de Asignaciones</h3>
+        <h3>👤 Datos Personales</h3>
+        <div class="bio-section">
+            <img src="https://res.cloudinary.com/dy5x6n5us/image/upload/v1764662531/df124e02-693c-40ec-b478-c13598ce4ec3_cgcnvl.jpg" alt="Foto de Perfil" class="profile-pic">
+            <div class="bio-details">
+                <p>Estudiante: **Eliana Daryharis Martínez Quintero**</p>
+                <p>Cédula: **4-834-1382**</p>
+                <p>Carrera: **Ingeniera Ambiental**</p>
+                <p>Email: <a href="mailto:elianadaryharismq393@gmail.com">elianadaryharismq393@gmail.com</a></p>
+                <p>LinkedIn: <a href="https://www.linkedin.com/in/eliana-mart%C3%ADnez-78a591396" target="_blank">Perfil Profesional de Eliana</a></p>
+            </div>
+        </div>
+
+        <h3>✅ Criterios de Evaluación</h3>
+        <p>Valor total de la asignación: 100 puntos.</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Criterio</th>
+                    <th>Puntos (Mínimo=1, Máximo=5)</th>
+                    <th>Porcentaje</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Desarrollo</td>
+                    <td>1-5</td>
+                    <td>80%</td>
+                </tr>
+                <tr>
+                    <td>Sustentación</td>
+                    <td>1-5</td>
+                    <td>10%</td>
+                </tr>
+                <tr>
+                    <td>Puntualidad</td>
+                    <td>1-5</td>
+                    <td>10%</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>📜 Asignaciones Realizadas</h3>
         
         <div class="asignacion">
             <h4>1. Código en Lenguaje C</h4>
             <p>Implementación de un algoritmo en el lenguaje C.</p>
-            <a href="Código en lenguaje C.docx" download>Descargar Documento (DOCX)</a> 
+            <a href="Código en lenguaje C.docx" target="_blank" class="action-button">Visualizar (Suele Descargar)</a>
+            <a href="Código en lenguaje C.docx" download class="action-button secondary">Descargar (DOCX)</a>
         </div>
         
         <div class="asignacion">
             <h4>2. Ejercicio de Desarrollo Lógico</h4>
             <p>Solución a la problemática de desarrollo lógico.</p>
-            <a href="Ejercicio 2. desarrollo logico.pdf" target="_blank">Ver / Descargar PDF</a>
+            <a href="Ejercicio 2. desarrollo logico.pdf" target="_blank" class="action-button">Visualizar</a>
+            <a href="Ejercicio 2. desarrollo logico.pdf" download class="action-button secondary">Descargar (PDF)</a>
         </div>
         
         <div class="asignacion">
             <h4>3. Ejercicio Práctico 1</h4>
             <p>Primer ejercicio práctico de la materia.</p>
-            <a href="Ejercicio Práctico 1.pdf" target="_blank">Ver / Descargar PDF</a>
+            <a href="Ejercicio Práctico 1.pdf" target="_blank" class="action-button">Visualizar</a>
+            <a href="Ejercicio Práctico 1.pdf" download class="action-button secondary">Descargar (PDF)</a>
         </div>
         
         <div class="asignacion">
             <h4>4. Gráfico Comparativo</h4>
             <p>Tabla Comparativa sobre Marketing Moderno vs. Verde.</p>
-            <a href="Gráfico Tabla Comparativa Marketing Moderno Verde.pdf" target="_blank">Ver / Descargar PDF</a>
+            <a href="Gráfico Tabla Comparativa Marketing Moderno Verde.pdf" target="_blank" class="action-button">Visualizar</a>
+            <a href="Gráfico Tabla Comparativa Marketing Moderno Verde.pdf" download class="action-button secondary">Descargar (PDF)</a>
         </div>
         
         <div class="asignacion">
             <h4>5. Parcial N°2 de DLYALG</h4>
             <p>Documento del segundo parcial de Desarrollo Lógico y Algoritmo.</p>
-            <a href="Parcial N°2 de DLYALG.pdf" target="_blank">Ver / Descargar PDF</a>
+            <a href="Parcial N°2 de DLYALG.pdf" target="_blank" class="action-button">Visualizar</a>
+            <a href="Parcial N°2 de DLYALG.pdf" download class="action-button secondary">Descargar (PDF)</a>
         </div>
 
         <div class="asignacion">
             <h4>6. Taller Práctico 2</h4>
             <p>Documento del Taller Práctico N°2.</p>
-            <a href="taller practico 2 2.pdf" target="_blank">Ver / Descargar PDF</a>
+            <a href="taller practico 2 2.pdf" target="_blank" class="action-button">Visualizar</a>
+            <a href="taller practico 2 2.pdf" download class="action-button secondary">Descargar (PDF)</a>
         </div>
 
         <div class="asignacion">
             <h4>7. Investigación 2</h4>
             <p>Documento de la segunda investigación del curso.</p>
-            <a href="Investigación 2 Desarrollo Logico (1).pdf" target="_blank">Ver / Descargar PDF</a>
+            <a href="Investigación 2 Desarrollo Logico (1).pdf" target="_blank" class="action-button">Visualizar</a>
+            <a href="Investigación 2 Desarrollo Logico (1).pdf" download class="action-button secondary">Descargar (PDF)</a>
         </div>
         
         <div class="asignacion">
             <h4>8. Documento Escaneado (Agosto)</h4>
             <p>Archivo escaneado con la aplicación Adobe Scan.</p>
-            <a href="Adobe Scan 26 ago 2025.pdf" target="_blank">Ver / Descargar PDF</a>
+            <a href="Adobe Scan 26 ago 2025.pdf" target="_blank" class="action-button">Visualizar</a>
+            <a href="Adobe Scan 26 ago 2025.pdf" download class="action-button secondary">Descargar (PDF)</a>
         </div>
 
     </div>
